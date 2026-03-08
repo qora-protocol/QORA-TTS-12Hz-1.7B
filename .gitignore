@@ -3,6 +3,7 @@
 *.exe
 *.qora-tts
 *.wav
+!model/1.7B/voices/*.wav
 *.py
 *.o
 *.pdb
