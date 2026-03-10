@@ -1,31 +1,4 @@
----
-language:
-  - en
-  - zh
-  - de
-  - it
-  - pt
-  - es
-  - ja
-  - ko
-  - fr
-  - ru
-license: apache-2.0
-tags:
-  - text-to-speech
-  - tts
-  - rust
-  - pure-rust
-  - no-python
-  - qwen3-tts
-  - voice-cloning
-  - cpu-inference
-  - quantized
-  - q4
-base_model: Qwen/Qwen3-TTS-12Hz-1.7B-Base
-pipeline_tag: text-to-speech
-library_name: qora
----
+
 
 # QORA-TTS 1.7B - Pure Rust Text-to-Speech with Voice Cloning
 
