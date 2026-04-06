@@ -93,6 +93,17 @@ voices/                         25 reference WAV files for voice cloning
 4. **Code expansion** — 5-layer Code Predictor expands code0 into 16 codebooks (codes 0-15)
 5. **Audio synthesis** — VQ decoder + Vocos vocoder converts codes to 24kHz waveform
 
+### AVX-512 SIMD Acceleration
+
+On CPUs with AVX-512 support (Intel 11th gen+, AMD Zen 4+), QORA-TTS automatically uses hand-written AVX-512 SIMD kernels for faster inference:
+
+| Kernel | Technique | Speedup |
+|--------|-----------|---------|
+| **Q4 GEMV** | `permutexvar_ps` 16-entry LUT lookup, nibble extract via `cvtepu8_epi32` | ~2.5x |
+| **F16 GEMV** | `cvtph_ps` f16→f32 + `fmadd_ps` FMA accumulation | ~2.5x |
+
+Detection is automatic at runtime — falls back to scalar code on non-AVX-512 CPUs with zero overhead.
+
 ## Smart System Awareness
 
 QORA-TTS detects your system at startup and automatically adjusts generation limits:
