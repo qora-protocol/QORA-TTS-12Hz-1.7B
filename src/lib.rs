@@ -1,4 +1,5 @@
 pub mod gemv;
+pub mod simd;
 pub mod config;
 pub mod tokenizer;
 pub mod rope;
